@@ -66,16 +66,16 @@ Basic information checklist:
 
 ### Arguments and argument groups
 
-If you component requires arguments, they should be defined in `arguments` or `argument_groups`. Try tro group individual arguments into `argument_groups` when the number of arguments become too larg  (10 or more as a rule of thumb). 
+If you component requires arguments, they should be defined in `arguments` or `argument_groups`. Try tro group individual arguments into `argument_groups` when the number of arguments become too large (10 or more as a rule of thumb). 
 
 Argument checklist:
 
  - Add a description and name
- - Each argument should have the appropriate type.
+ - Each argument should have the appropriate type
  - Input and output files should be of type `file` instead of `string` and use the appropriate `direction:` 
  - If possible: add an example
  - If the argument can accept multiple values, add `multiple: true`
- - If the possible input for an argument is limited to certain set of values, use `choices:`
+ - If the possible input for an argument is limited to a certain set of values, use `choices:`
 
 ### (Test)resources
 
@@ -84,10 +84,12 @@ Resources define files that are required for a component to perform its function
 There is a difference between defining `resources` and `test_resources`. While resources are required for a component to function, `test_resources` only need to be included when testing the component (with for example `viash test`) in addition to the regular resources. Having a look at the example above, resources are defined using the `resources:` property. It takes a list of multiple files or folders.
 
 In openpipelines, it was decided to not use a service like `git lfs` to include large resources into the repository. Instead, if large resources are required, there are two possibilities:
+
   * Large resources required for _testing_ are to uploaded into an `s3` bucket that is synced automatically before running tests (both locally and on github). Please ping a maintainer when you open a PR and ask them to upload the files for you.
-  * Other large resources that are not needed for testing can be considered as input. This means that an argument of `type: file` needs to be created. The downside of this method is that viash is not able to natively support remote files f
+  * Other large resources that are not needed for testing can be considered as input. This means that an argument of `type: file` needs to be created. The downside of this method is that viash is not able to natively support remote files.
 
 Resources checklist:
+
   - Script resources are located next to the config and added to the config with the correct type (`python_script`, `r_script`, ...)
   - Small resources (<50MB) that are not scripts can also be checked in into the repo, next to the 
 
@@ -126,7 +128,7 @@ The preferred containerization setup in OpenPipelines uses the following guideli
 * Choose a base container from a reputable source and use its latest version
 * Do not use base containers that have not been updated in a while
 * Use package managers to install dependencies as much as possible
-* Avoid building depdencies from source.
+* Avoid building dependencies from source.
 
 Examples of base containers that are currently being used are:
 

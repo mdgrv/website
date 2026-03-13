@@ -48,6 +48,7 @@ with the following `param_list.yaml`:
 $cat param_list.yaml
 - id: foo
   input: foo.txt
+  global_param: lorem
 - id: bar
   input: bar.txt
   global_param: ipsum

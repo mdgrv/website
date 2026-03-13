@@ -1,10 +1,10 @@
 ---
 title: Running pipelines
-description: Run a pipeline from CLI or Nextflow Tower
+description: Run a pipeline from CLI or Seqera Platform
 order: 10
 ---
 
-Dependening on whether you want to run a workflow locally or on cloud infrastructure, using Nextflow Tower or not, you will need to use different commands.
+Dependening on whether you want to run a workflow locally or on cloud infrastructure, using Seqera Platform (Nextflow Tower) or not, you will need to use different commands.
 
 ## Run locally from the CLI
 
@@ -38,9 +38,10 @@ nextflow run openpipelines-bio/openpipeline \
   -c configs/my_hpc.config
 ```
 
-## Using the Nextflow Tower CLI
+## Using the Seqera Platform CLI
 
-If you have access to a Nextflow Tower instance in which a Compute Environment has already been set up, you can run a workflow from the Tower CLI. The command is very similar to the command to run a workflow from the CLI, but you need to:
+If you have access to a Seqera Platform instance, previously known as Nextflow Tower, in which a Compute Environment has already been set up, you can run a workflow from the Tower CLI. The command is very similar to the command to run a workflow from the CLI, but you need to:
+
   * Use `tw launch` instead of `nextflow run`
   * Specify the workspace ID and compute environment ID
   * Rename arguments: `-revision` to `--revision`, `-latest` to `--pull-latest`, `-main-script` to `--main-script`, `-c` to `--config`
@@ -59,9 +60,9 @@ tw launch openpipelines-bio/openpipeline \
   --config configs/my_hpc.config
 ```
 
-## Using the Nextflow Tower Web UI
+## Using the Seqera Platform Web UI
 
-If you have access to a Nextflow Tower instance in which a Compute Environment has already been set up, you can run a workflow from the Tower UI. To do so, go to the "Launchpad" and click on the button "launch a run without configuration".
+If you have access to a Seqera Platform instance, previously known as Nextflow Tower, in which a Compute Environment has already been set up, you can run a workflow from the Tower UI. To do so, go to the "Launchpad" and click on the button "launch a run without configuration".
 
 ![](./images/launchpad.png)
 
